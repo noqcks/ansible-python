@@ -1,4 +1,15 @@
 ---
+- name: Install Packages | apt | build dependencies
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+  with_items: python_build_dependencies
+  when: python_build_dependencies is iterable
+  tags:
+    - software-installation
+    - using-apt
+    - python
+
 - name: Install Packages | apt
   apt:
     state: latest

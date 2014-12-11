@@ -1,5 +1,6 @@
 ---
 python_packages: no
+python_build_dependencies: no
 python_requirements_file: omit
 python_legacy_support: no
 python_easy_install_executable: "/usr/bin/easy_install{{ 3 if not python_legacy_support else '' }}"
