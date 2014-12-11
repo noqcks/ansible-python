@@ -1,0 +1,6 @@
+---
+python_packages: no
+python_requirements_file: omit
+python_legacy_support: no
+python_easy_install_executable: "/usr/bin/easy_install{{ 3 if not python_legacy_support else '' }}"
+python_pip_executable: "/usr/local/bin/pip{{ 3 if not python_legacy_support else '' }}"
