@@ -4,7 +4,7 @@
     state: latest
     pkg: "{{ item }}"
   with_items: python_build_dependencies
-  when: python_build_dependencies is iterable
+  when: python_build_dependencies
   tags:
     - software-installation
     - using-apt
@@ -54,7 +54,7 @@
     name: "{{ item }}"
     requirements: "{{ python_requirements_file | default(omit) }}"
   with_items: python_packages
-  when: python_packages is iterable
+  when: python_packages
   tags:
     - software-installation
     - using-pip
