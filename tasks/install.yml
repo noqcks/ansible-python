@@ -10,7 +10,7 @@
     - using-apt
     - python
 
-- name: Install Packages | apt
+- name: Install Packages (legacy) | apt
   apt:
     state: latest
     pkg: "{{ item }}"
@@ -47,14 +47,24 @@
     - using-easy_install
     - python
 
-- name: Install Packages | pip
+- name: "Install Packages | pip | {{ python_packages }}"
   pip:
     executable: "{{ python_pip_executable }}"
     state: latest
     name: "{{ item }}"
-    requirements: "{{ python_requirements_file | default(omit) }}"
   with_items: python_packages
   when: python_packages
+  tags:
+    - software-installation
+    - using-pip
+    - python
+
+- name: Install Packages | pip | requirements file
+  pip:
+    executable: "{{ python_pip_executable }}"
+    state: latest
+    requirements: "{{ python_requirements_file }}"
+  when: python_requirements_file != 'omit'
   tags:
     - software-installation
     - using-pip
