@@ -27,11 +27,11 @@ Example Playbook
 ----------------
     - hosts: servers
       roles:
-         - role: colstrom.python
+         - role: telusdigital.python
            python_packages:
              - awscli
              - boto
-         - role: colstrom.python
+         - role: telusdigital.python
            python_legacy_support: yes
            python_packages:
              - ansible
